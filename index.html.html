@@ -3,36 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f6f2ea">
+<meta name="theme-color" content="#f4f5f8">
 <title>TechTrail — Computer Systems Basics</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23eee6d6'/%3E%3Cpath d='M16 6 L25 11 V21 L16 26 L7 21 V11 Z' fill='none' stroke='%235c9080' stroke-width='1.4'/%3E%3Ccircle cx='16' cy='16' r='2.6' fill='%23d98a4a'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23eef1f5'/%3E%3Crect x='9' y='9' width='14' height='14' rx='2' fill='none' stroke='%231f6fb3' stroke-width='1.6'/%3E%3Crect x='13' y='13' width='6' height='6' rx='1' fill='%23e0912f'/%3E%3Cline x1='13' y1='9' x2='13' y2='6' stroke='%231f6fb3' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='19' y1='9' x2='19' y2='6' stroke='%231f6fb3' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='13' y1='23' x2='13' y2='26' stroke='%231f6fb3' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='19' y1='23' x2='19' y2='26' stroke='%231f6fb3' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='9' y1='13' x2='6' y2='13' stroke='%231f6fb3' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='9' y1='19' x2='6' y2='19' stroke='%231f6fb3' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='23' y1='13' x2='26' y2='13' stroke='%231f6fb3' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='23' y1='19' x2='26' y2='19' stroke='%231f6fb3' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ===== Tokens — relaxed, warm palette ===== */
+/* ===== Tokens — cool tech palette, blue / amber complements ===== */
 :root{
-  --bg:#f6f2ea;
-  --bg-soft:#f0ebe0;
+  --bg:#f4f5f8;
+  --bg-soft:#eceef2;
   --panel:rgba(255,255,255,0.72);
-  --panel-alt:rgba(255,255,255,0.92);
-  --border:#e4dccb;
-  --border-bright:#cdbfa0;
-  --text:#3d372e;
-  --text-dim:#756c5e;
-  --text-faint:#a49a87;
-  --accent:#5c9080;       /* soft sage */
-  --accent-hi:#3f7a68;
-  --accent-dim:#e3ede8;
-  --gold:#d98a4a;         /* warm apricot — secondary accent */
-  --gold-dim:#f6e3d1;
-  --danger:#c96a5c;
-  --danger-dim:#f5e0db;
+  --panel-alt:rgba(255,255,255,0.94);
+  --border:#dfe2e8;
+  --border-bright:#c2c8d3;
+  --text:#22262e;
+  --text-dim:#5a6270;
+  --text-faint:#8b93a3;
+  --accent:#3d8fd6;       /* tech blue */
+  --accent-hi:#1f6fb3;
+  --accent-dim:#e3eef8;
+  --gold:#e0912f;         /* amber — complementary secondary accent */
+  --gold-dim:#faecd9;
+  --danger:#d1483c;
+  --danger-dim:#fbe2df;
   --radius:16px;
   --radius-sm:12px;
-  --font-display:'Quicksand','Nunito Sans',system-ui,-apple-system,sans-serif;
-  --font-mono:'Nunito Sans',system-ui,-apple-system,sans-serif;
-  --font-body:'Nunito Sans',system-ui,-apple-system,sans-serif;
+  --font-display:'Space Grotesk','Inter',system-ui,-apple-system,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --font-body:'Inter',system-ui,-apple-system,sans-serif;
 }
 
 *{box-sizing:border-box;}
@@ -40,8 +40,8 @@ html,body{height:100%;}
 body{
   margin:0;
   background:
-    radial-gradient(ellipse 900px 500px at 12% -10%, rgba(92,144,128,0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 700px 500px at 92% 100%, rgba(217,138,74,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 900px 500px at 12% -10%, rgba(61,143,214,0.09) 0%, transparent 60%),
+    radial-gradient(ellipse 700px 500px at 92% 100%, rgba(224,145,47,0.07) 0%, transparent 60%),
     var(--bg);
   color:var(--text);
   font-family:var(--font-body);
@@ -87,7 +87,7 @@ button{font-family:inherit;}
   border:1px solid var(--border);
   display:flex;align-items:center;justify-content:center;
   flex-shrink:0;
-  box-shadow:0 4px 14px -6px rgba(61,55,46,0.18);
+  box-shadow:0 4px 14px -6px rgba(34,38,46,0.14);
 }
 .brand-mark svg{display:block;width:23px;height:23px;}
 .brand-word{
@@ -198,7 +198,7 @@ button{font-family:inherit;}
   border-color:var(--accent);
   background:var(--panel-alt);
   transform:translateY(-2px);
-  box-shadow:0 12px 26px -18px rgba(61,55,46,0.35);
+  box-shadow:0 12px 26px -18px rgba(34,38,46,0.22);
 }
 .mode-card .mode-name{
   font-family:var(--font-display);
@@ -207,7 +207,7 @@ button{font-family:inherit;}
   letter-spacing:0;
 }
 .mode-card .mode-meta{
-  font-family:var(--font-body);
+  font-family:var(--font-mono);
   font-size:11px;
   color:var(--gold);
   font-weight:600;
@@ -227,7 +227,7 @@ button{font-family:inherit;}
   border:1px solid var(--border);
   border-radius:var(--radius);
   padding:26px;
-  box-shadow:0 16px 34px -28px rgba(61,55,46,0.4);
+  box-shadow:0 16px 34px -28px rgba(34,38,46,0.24);
 }
 .panel h2{
   font-family:var(--font-display);
@@ -261,7 +261,7 @@ button{font-family:inherit;}
 
 .primary-btn{
   background:var(--accent-hi);
-  color:#fbf8f2;
+  color:#f5f8fc;
   border:none;
   padding:13px 24px;
   border-radius:999px;
@@ -271,10 +271,10 @@ button{font-family:inherit;}
   letter-spacing:.01em;
   cursor:pointer;
   transition:filter .15s ease, transform .15s ease, box-shadow .15s ease;
-  box-shadow:0 8px 20px -8px rgba(63,122,104,0.55);
+  box-shadow:0 8px 20px -8px rgba(31,111,179,0.5);
   min-height:46px;
 }
-.primary-btn:hover{filter:brightness(1.06);transform:translateY(-1px);box-shadow:0 10px 24px -6px rgba(63,122,104,0.6);}
+.primary-btn:hover{filter:brightness(1.06);transform:translateY(-1px);box-shadow:0 10px 24px -6px rgba(31,111,179,0.55);}
 .primary-btn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none;}
 
 .ghost-btn{
@@ -292,6 +292,74 @@ button{font-family:inherit;}
 .ghost-btn:hover{border-color:var(--accent);color:var(--accent-hi);background:var(--accent-dim);}
 
 .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px;}
+
+/* ===== Modal (custom confirm — avoids blocked native dialogs) ===== */
+.modal-overlay{
+  position:fixed;inset:0;
+  background:rgba(20,23,28,0.45);
+  backdrop-filter:blur(2px);
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  z-index:100;
+  animation:fadein .15s ease both;
+}
+.modal-box{
+  background:var(--panel-alt);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:24px;
+  max-width:380px;
+  width:100%;
+  box-shadow:0 24px 48px -20px rgba(20,23,28,0.35);
+}
+.modal-title{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:18px;
+  margin:0 0 10px;
+  color:var(--text);
+}
+.modal-body{
+  font-family:var(--font-body);
+  font-size:14px;
+  line-height:1.6;
+  color:var(--text-dim);
+  margin:0 0 20px;
+}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;}
+.modal-actions .ghost-btn,.modal-actions .primary-btn{min-height:42px;padding:10px 18px;}
+.primary-btn.danger{
+  background:var(--danger);
+  box-shadow:0 8px 20px -8px rgba(209,72,60,0.55);
+}
+.primary-btn.danger:hover{filter:brightness(1.06);}
+
+/* ===== Quiz topbar / End Quiz control ===== */
+.quiz-topbar{
+  display:flex;
+  justify-content:flex-end;
+  margin-bottom:10px;
+}
+.end-btn{
+  background:transparent;
+  border:1px solid var(--border);
+  color:var(--text-faint);
+  padding:8px 14px;
+  border-radius:999px;
+  font-family:var(--font-mono);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.02em;
+  cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;
+  transition:border-color .15s ease,color .15s ease,background .15s ease;
+  min-height:34px;
+}
+.end-btn:hover,.end-btn:focus-visible{
+  border-color:var(--danger);
+  color:var(--danger);
+  background:var(--danger-dim);
+}
 
 /* ===== Telemetry bar (now a calm stat strip) ===== */
 .telemetry{
@@ -315,13 +383,14 @@ button{font-family:inherit;}
   margin-bottom:4px;
 }
 .telemetry .cell .v{
-  font-size:16px;
-  font-weight:700;
+  font-size:15px;
+  font-weight:600;
   color:var(--text);
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
-  font-family:var(--font-display);
+  font-family:var(--font-mono);
+  letter-spacing:-0.01em;
 }
 .telemetry .cell .v.accent{color:var(--accent-hi);}
 .telemetry .cell .v.amber{color:var(--gold);}
@@ -350,7 +419,7 @@ button{font-family:inherit;}
   border:1px solid var(--border);
   border-radius:var(--radius);
   padding:26px 24px;
-  box-shadow:0 16px 34px -28px rgba(61,55,46,0.4);
+  box-shadow:0 16px 34px -28px rgba(34,38,46,0.24);
 }
 .q-meta{
   display:flex;gap:9px;align-items:center;flex-wrap:wrap;
@@ -411,12 +480,12 @@ button{font-family:inherit;}
   border-color:var(--accent);
   background:var(--accent-dim);
 }
-.choice-btn.correct .letter{background:var(--accent-hi);color:#fbf8f2;border-color:var(--accent-hi);}
+.choice-btn.correct .letter{background:var(--accent-hi);color:#f5f8fc;border-color:var(--accent-hi);}
 .choice-btn.incorrect{
   border-color:var(--danger);
   background:var(--danger-dim);
 }
-.choice-btn.incorrect .letter{background:var(--danger);color:#fdf6f5;border-color:var(--danger);}
+.choice-btn.incorrect .letter{background:var(--danger);color:#fdf3f2;border-color:var(--danger);}
 
 .feedback{
   margin-top:18px;
@@ -466,7 +535,7 @@ button{font-family:inherit;}
   pointer-events:none;
 }
 .rating-banner .pct{
-  font-family:var(--font-display);
+  font-family:var(--font-mono);
   font-size:52px;
   font-weight:700;
   color:var(--accent-hi);
@@ -490,7 +559,7 @@ button{font-family:inherit;}
 }
 .stat-cell{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;}
 .stat-cell .k{font-family:var(--font-body);font-size:11px;letter-spacing:.02em;color:var(--text-faint);margin-bottom:6px;}
-.stat-cell .v{font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--accent-hi);}
+.stat-cell .v{font-family:var(--font-mono);font-size:19px;font-weight:600;color:var(--accent-hi);}
 
 /* ===== Review ===== */
 .review-item{
@@ -541,6 +610,8 @@ footer.foot{
   .btn-row{flex-direction:column;}
   .btn-row .primary-btn,.btn-row .ghost-btn{width:100%;}
   .q-footer .primary-btn{width:100%;}
+  .modal-actions{flex-direction:column-reverse;}
+  .modal-actions .ghost-btn,.modal-actions .primary-btn{width:100%;}
 }
 
 @media(max-width:420px){
@@ -4399,6 +4470,47 @@ function advance() {
   armTimer();
 }
 
+// Lets the player end the run early from mid-quiz. Whatever has been
+// answered so far still counts — results are computed from the same
+// score/correctCount/incorrectCount tallies as a normal finish.
+// Uses a custom modal instead of window.confirm(), since native browser
+// dialogs are blocked in sandboxed/embedded previews and would otherwise
+// make the button appear to do nothing.
+function confirmEndQuiz() {
+  const answered = state.correctCount + state.incorrectCount;
+  const msg = answered > 0
+    ? `You've answered ${answered} question${answered === 1 ? '' : 's'} so far. Your results will be based on those.`
+    : 'No questions have been answered yet — your results will be empty.';
+  showModal({
+    title: 'End quiz now?',
+    body: msg,
+    confirmLabel: 'End Quiz',
+    cancelLabel: 'Keep Playing',
+    onConfirm: finishQuiz,
+  });
+}
+
+function showModal({ title, body, confirmLabel, cancelLabel, onConfirm }) {
+  const overlay = el('div', { class: 'modal-overlay', role: 'presentation' });
+  const close = () => overlay.remove();
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+
+  const box = el('div', { class: 'modal-box', role: 'alertdialog', 'aria-modal': 'true', 'aria-label': title }, [
+    el('h3', { class: 'modal-title' }, title),
+    el('p', { class: 'modal-body' }, body),
+    el('div', { class: 'modal-actions' }, [
+      el('button', { class: 'ghost-btn', onclick: close }, cancelLabel),
+      el('button', {
+        class: 'primary-btn danger',
+        onclick: () => { close(); onConfirm(); },
+      }, confirmLabel),
+    ]),
+  ]);
+  overlay.appendChild(box);
+  document.body.appendChild(overlay);
+  box.querySelector('.primary-btn')?.focus();
+}
+
 function finishQuiz() {
   stopTimer();
   state.endTime = Date.now();
@@ -4446,8 +4558,16 @@ function el(tag, attrs = {}, children = []) {
 
 const TRAIL_MARK_SVG = `
 <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <path d="M16 6 L25 11 V21 L16 26 L7 21 V11 Z" fill="none" stroke="#5c9080" stroke-width="1.4"/>
-  <circle cx="16" cy="16" r="2.6" fill="#d98a4a"/>
+  <rect x="9" y="9" width="14" height="14" rx="2" stroke="#1f6fb3" stroke-width="1.6"/>
+  <rect x="13" y="13" width="6" height="6" rx="1" fill="#e0912f"/>
+  <line x1="13" y1="9" x2="13" y2="6" stroke="#1f6fb3" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="19" y1="9" x2="19" y2="6" stroke="#1f6fb3" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="13" y1="23" x2="13" y2="26" stroke="#1f6fb3" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="19" y1="23" x2="19" y2="26" stroke="#1f6fb3" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="9" y1="13" x2="6" y2="13" stroke="#1f6fb3" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="9" y1="19" x2="6" y2="19" stroke="#1f6fb3" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="23" y1="13" x2="26" y2="13" stroke="#1f6fb3" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="23" y1="19" x2="26" y2="19" stroke="#1f6fb3" stroke-width="1.6" stroke-linecap="round"/>
 </svg>`;
 
 function renderBrandBar() {
@@ -4557,6 +4677,10 @@ function renderQuiz() {
 
   const totalLabel = state.mode === 'practice' ? '∞' : String(state.questions.length);
   const qNumLabel = `${state.index + 1} / ${totalLabel}`;
+
+  wrap.appendChild(el('div', { class: 'quiz-topbar' }, [
+    el('button', { class: 'end-btn', onclick: confirmEndQuiz, type: 'button' }, ['✕ ', 'End Quiz']),
+  ]));
 
   const telemetry = el('div', { class: 'telemetry' }, [
     telCell('Question', qNumLabel),
