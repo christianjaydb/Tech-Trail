@@ -59,6 +59,15 @@ body{
 button{font-family:inherit;}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px;}
 
+.primary-btn:active:not(:disabled),
+.ghost-btn:active,
+.pill-btn:active,
+.choice-btn:active:not(:disabled),
+.end-btn:active,
+.mode-card:active{
+  transform:scale(.97);
+}
+
 .sr-only{
   position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
   clip:rect(0,0,0,0);white-space:nowrap;border:0;
@@ -101,15 +110,6 @@ button{font-family:inherit;}
 .brand-word em{
   font-style:normal;
   color:var(--accent-hi);
-}
-.brand-sub{
-  font-family:var(--font-body);
-  font-size:12px;
-  color:var(--text-faint);
-  letter-spacing:.02em;
-  padding-left:54px;
-  margin-top:2px;
-  width:100%;
 }
 .brand-tag{
   font-family:var(--font-body);
@@ -163,10 +163,6 @@ button{font-family:inherit;}
   padding-left:2px;
   display:flex;align-items:center;gap:9px;
 }
-.section-label::before{
-  content:'✻';
-  color:var(--gold);
-}
 .section-label::after{
   content:'';
   flex:1;
@@ -209,7 +205,7 @@ button{font-family:inherit;}
 .mode-card .mode-meta{
   font-family:var(--font-mono);
   font-size:11px;
-  color:var(--gold);
+  color:var(--accent-hi);
   font-weight:600;
   letter-spacing:.03em;
 }
@@ -335,6 +331,24 @@ button{font-family:inherit;}
 .primary-btn.danger:hover{filter:brightness(1.06);}
 
 /* ===== Quiz topbar / End Quiz control ===== */
+.quiz-stickybar{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:var(--bg);
+  padding-top:10px;
+  margin:0 -2px 18px;
+  padding-left:2px;
+  padding-right:2px;
+}
+.quiz-stickybar::after{
+  content:'';
+  position:absolute;
+  left:0;right:0;bottom:-10px;
+  height:10px;
+  background:linear-gradient(var(--bg), transparent);
+  pointer-events:none;
+}
 .quiz-topbar{
   display:flex;
   justify-content:flex-end;
@@ -352,7 +366,7 @@ button{font-family:inherit;}
   letter-spacing:.02em;
   cursor:pointer;
   display:inline-flex;align-items:center;gap:6px;
-  transition:border-color .15s ease,color .15s ease,background .15s ease;
+  transition:border-color .15s ease,color .15s ease,background .15s ease,transform .1s ease;
   min-height:34px;
 }
 .end-btn:hover,.end-btn:focus-visible{
@@ -366,7 +380,7 @@ button{font-family:inherit;}
   display:grid;
   grid-template-columns:repeat(5,1fr);
   gap:10px;
-  margin-bottom:18px;
+  margin-bottom:0;
   font-family:var(--font-body);
 }
 .telemetry .cell{
@@ -375,6 +389,8 @@ button{font-family:inherit;}
   border-radius:var(--radius-sm);
   padding:11px 13px;
   min-width:0;
+  position:relative;
+  overflow:hidden;
 }
 .telemetry .cell .k{
   font-size:10.5px;
@@ -398,12 +414,49 @@ button{font-family:inherit;}
 .telemetry .cell .v.diff-medium{color:var(--gold);}
 .telemetry .cell .v.diff-hard{color:var(--danger);}
 
+.timer-cell .timer-bar{
+  position:absolute;left:0;right:0;bottom:0;
+  height:3px;
+  background:var(--border);
+}
+.timer-cell .timer-bar-fill{
+  height:100%;
+  background:var(--accent);
+  transition:width 1s linear, background-color .3s ease;
+}
+.timer-cell.low .timer-bar-fill{background:var(--gold);}
+
+@keyframes cellPulse{
+  0%{box-shadow:0 0 0 0 rgba(31,111,179,0.35);}
+  100%{box-shadow:0 0 0 8px rgba(31,111,179,0);}
+}
+.telemetry .cell.pulse{animation:cellPulse .5s ease-out;}
+
+@keyframes popFloat{
+  0%{opacity:0;transform:translate(-50%,4px) scale(.9);}
+  20%{opacity:1;transform:translate(-50%,-2px) scale(1);}
+  100%{opacity:0;transform:translate(-50%,-22px) scale(1);}
+}
+.score-pop{
+  position:absolute;
+  left:50%;top:-2px;
+  transform:translate(-50%,0);
+  font-family:var(--font-mono);
+  font-weight:700;
+  font-size:12px;
+  color:var(--accent-hi);
+  animation:popFloat 0.9s ease-out both;
+  pointer-events:none;
+  white-space:nowrap;
+}
+
 .progress-track{
   height:8px;
   background:var(--border);
   border-radius:8px;
   overflow:hidden;
-  margin-bottom:22px;
+  margin-top:14px;
+  margin-bottom:0;
 }
 .progress-fill{
   height:100%;
@@ -486,6 +539,7 @@ button{font-family:inherit;}
   background:var(--danger-dim);
 }
 .choice-btn.incorrect .letter{background:var(--danger);color:#fdf3f2;border-color:var(--danger);}
+.choice-btn.dim{opacity:.45;}
 
 .feedback{
   margin-top:18px;
@@ -514,6 +568,24 @@ button{font-family:inherit;}
   font-family:var(--font-body);
   font-size:12px;
   color:var(--text-faint);
+}
+
+.kbd-hint{
+  margin-top:16px;
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:.01em;
+  color:var(--text-faint);
+  display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+}
+.kbd-hint kbd{
+  background:var(--panel-alt);
+  border:1px solid var(--border-bright);
+  border-radius:5px;
+  padding:2px 6px;
+  font-family:var(--font-mono);
+  font-size:10.5px;
+  color:var(--text-dim);
 }
 
 /* ===== Results ===== */
@@ -587,17 +659,6 @@ button{font-family:inherit;}
   border-radius:var(--radius);
 }
 
-footer.foot{
-  text-align:center;
-  color:var(--text-faint);
-  font-family:var(--font-body);
-  font-size:12px;
-  letter-spacing:.01em;
-  margin-top:44px;
-  padding-top:22px;
-  border-top:1px solid var(--border);
-}
-
 /* ===== Responsive ===== */
 @media(max-width:640px){
   #app{padding:20px 16px 48px;}
@@ -609,6 +670,15 @@ footer.foot{
   .q-text{font-size:16.5px;}
   .btn-row{flex-direction:column;}
   .btn-row .primary-btn,.btn-row .ghost-btn{width:100%;}
+  .q-footer{
+    position:sticky;
+    bottom:0;
+    margin:20px -16px 0;
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    background:linear-gradient(var(--bg-soft), var(--bg-soft) 60%, var(--bg-soft));
+    border-top:1px solid var(--border);
+    box-shadow:0 -12px 20px -12px rgba(34,38,46,0.12);
+  }
   .q-footer .primary-btn{width:100%;}
   .modal-actions{flex-direction:column-reverse;}
   .modal-actions .ghost-btn,.modal-actions .primary-btn{width:100%;}
@@ -4492,8 +4562,13 @@ function confirmEndQuiz() {
 
 function showModal({ title, body, confirmLabel, cancelLabel, onConfirm }) {
   const overlay = el('div', { class: 'modal-overlay', role: 'presentation' });
-  const close = () => overlay.remove();
+  const onKeydown = (e) => { if (e.key === 'Escape') { e.preventDefault(); close(); } };
+  const close = () => {
+    overlay.remove();
+    document.removeEventListener('keydown', onKeydown);
+  };
   overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', onKeydown);
 
   const box = el('div', { class: 'modal-box', role: 'alertdialog', 'aria-modal': 'true', 'aria-label': title }, [
     el('h3', { class: 'modal-title' }, title),
@@ -4533,11 +4608,6 @@ function render() {
     default: body = renderHome();
   }
   root.appendChild(body);
-
-  const foot = document.createElement('footer');
-  foot.className = 'foot';
-  foot.textContent = `TECHTRAIL // ${QUESTION_POOL.length} QUESTIONS ACROSS ${new Set(QUESTION_POOL.map(q=>q.category)).size} WAYPOINTS`;
-  root.appendChild(foot);
 }
 
 function el(tag, attrs = {}, children = []) {
@@ -4581,7 +4651,6 @@ function renderBrandBar() {
       el('div', { class: 'brand-word' }, ['Tech', el('em', {}, 'Trail')]),
     ]),
     el('div', { class: 'brand-tag' }, 'CS BASICS TRAINING ROUTE'),
-    el('div', { class: 'brand-sub' }, `${QUESTION_POOL.length}-QUESTION POOL // ${new Set(QUESTION_POOL.map(q => q.category)).size} WAYPOINTS`),
   ]);
 }
 
@@ -4678,25 +4747,48 @@ function renderQuiz() {
   const totalLabel = state.mode === 'practice' ? '∞' : String(state.questions.length);
   const qNumLabel = `${state.index + 1} / ${totalLabel}`;
 
-  wrap.appendChild(el('div', { class: 'quiz-topbar' }, [
+  const stickyBar = el('div', { class: 'quiz-stickybar' });
+  stickyBar.appendChild(el('div', { class: 'quiz-topbar' }, [
     el('button', { class: 'end-btn', onclick: confirmEndQuiz, type: 'button' }, ['✕ ', 'End Quiz']),
   ]));
 
+  const scoreCell = telCell('Score', String(state.score), 'accent');
+  if (state.answered && state.selected === q.answer && state.lastGain > 0) {
+    scoreCell.classList.add('pulse');
+    scoreCell.appendChild(el('div', { class: 'score-pop' }, `+${state.lastGain}`));
+  }
+  const streakCell = telCell('Streak', String(state.streak), 'accent');
+  if (state.answered && state.streak > 0 && state.selected === q.answer) {
+    streakCell.classList.add('pulse');
+  }
+
+  const timerLow = state.timerSetting && state.timeLeft <= 5;
+  const timerCell = telCell('Timer', state.timerSetting ? `${state.timeLeft}s` : '—', timerLow ? 'amber' : '');
+  timerCell.classList.add('timer-cell');
+  if (timerLow) timerCell.classList.add('low');
+  if (state.timerSetting) {
+    const pct = Math.max(0, Math.min(100, (state.timeLeft / state.timerSetting) * 100));
+    const bar = el('div', { class: 'timer-bar' });
+    bar.appendChild(el('div', { class: 'timer-bar-fill', style: `width:${pct}%` }));
+    timerCell.appendChild(bar);
+  }
+
   const telemetry = el('div', { class: 'telemetry' }, [
     telCell('Question', qNumLabel),
-    telCell('Score', String(state.score), 'accent'),
-    telCell('Streak', String(state.streak), 'accent'),
+    scoreCell,
+    streakCell,
     telCell('Difficulty', q.difficulty, diffClass(q.difficulty)),
-    telCell('Timer', state.timerSetting ? `${state.timeLeft}s` : '—', state.timerSetting && state.timeLeft <= 5 ? 'amber' : ''),
+    timerCell,
   ]);
-  wrap.appendChild(telemetry);
+  stickyBar.appendChild(telemetry);
 
   if (state.mode !== 'practice') {
     const pct = Math.round(((state.index) / state.questions.length) * 100);
     const track = el('div', { class: 'progress-track' });
     track.appendChild(el('div', { class: 'progress-fill', style: `width:${pct}%` }));
-    wrap.appendChild(track);
+    stickyBar.appendChild(track);
   }
+  wrap.appendChild(stickyBar);
 
   const card = el('div', { class: 'q-card' });
   card.appendChild(el('div', { class: 'q-meta' }, [
@@ -4711,9 +4803,11 @@ function renderQuiz() {
     const isCorrect = choice === q.answer;
     const isPicked = choice === state.selected;
     let cls = 'choice-btn';
+    let badge = letters[i] || '•';
     if (state.answered) {
-      if (isCorrect) cls += ' correct';
-      else if (isPicked) cls += ' incorrect';
+      if (isCorrect) { cls += ' correct'; badge = '✓'; }
+      else if (isPicked) { cls += ' incorrect'; badge = '✗'; }
+      else { cls += ' dim'; }
     } else if (isPicked) {
       cls += ' selected';
     }
@@ -4723,12 +4817,19 @@ function renderQuiz() {
       'aria-pressed': isPicked ? 'true' : 'false',
       onclick: () => submitAnswer(choice, false),
     }, [
-      el('span', { class: 'letter' }, letters[i] || '•'),
+      el('span', { class: 'letter' }, badge),
       el('span', {}, choice),
     ]);
     choicesWrap.appendChild(btn);
   });
   card.appendChild(choicesWrap);
+
+  if (!state.answered) {
+    card.appendChild(el('div', { class: 'kbd-hint' }, [
+      el('kbd', {}, '1–4'), 'or', el('kbd', {}, 'A–D'), 'to answer · ',
+      el('kbd', {}, 'Esc'), 'to end quiz',
+    ]));
+  }
 
   if (state.answered) {
     const wasCorrect = state.selected === q.answer;
@@ -4746,6 +4847,7 @@ function renderQuiz() {
     else if (isLastNonPractice) label = 'Finish Quiz →';
     footer.appendChild(el('button', { class: 'primary-btn', onclick: advance }, label));
     card.appendChild(footer);
+    card.appendChild(el('div', { class: 'kbd-hint' }, [el('kbd', {}, 'Enter'), 'to continue']));
   }
 
   wrap.appendChild(card);
@@ -4770,9 +4872,19 @@ function telCell(label, value, extraClass = '') {
 function renderTimerOnly() {
   if (state.screen !== 'quiz') return;
   const cells = root.querySelectorAll('.telemetry .cell .v');
+  const timerCell = root.querySelector('.telemetry .cell.timer-cell');
+  const low = state.timerSetting && state.timeLeft <= 5;
   if (cells.length >= 5) {
     cells[4].textContent = state.timerSetting ? `${state.timeLeft}s` : '—';
-    cells[4].className = 'v' + (state.timerSetting && state.timeLeft <= 5 ? ' amber' : '');
+    cells[4].className = 'v' + (low ? ' amber' : '');
+  }
+  if (timerCell) {
+    timerCell.classList.toggle('low', !!low);
+    const fill = timerCell.querySelector('.timer-bar-fill');
+    if (fill && state.timerSetting) {
+      const pct = Math.max(0, Math.min(100, (state.timeLeft / state.timerSetting) * 100));
+      fill.style.width = pct + '%';
+    }
   }
 }
 
@@ -4788,10 +4900,12 @@ function renderResults() {
   const secs = seconds % 60;
   const timeStr = `${mins}m ${secs}s`;
 
+  const pctEl = el('div', { class: 'pct' }, '0%');
   wrap.appendChild(el('div', { class: 'rating-banner' }, [
-    el('div', { class: 'pct' }, `${pct}%`),
+    pctEl,
     el('div', { class: 'label' }, `${rating} · ${MODES[state.mode].name}`),
   ]));
+  animateCountUp(pctEl, pct, '%');
 
   wrap.appendChild(el('div', { class: 'stat-grid' }, [
     statCell('Final Score', String(state.score)),
@@ -4812,6 +4926,24 @@ function renderResults() {
   wrap.appendChild(btnRow);
 
   return wrap;
+}
+
+// Animates a number counting up to `target` over ~700ms. Respects the
+// reduced-motion setting by jumping straight to the final value.
+function animateCountUp(node, target, suffix = '') {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    node.textContent = `${target}${suffix}`;
+    return;
+  }
+  const duration = 700;
+  const start = performance.now();
+  function tick(now) {
+    const t = Math.min(1, (now - start) / duration);
+    const eased = 1 - Math.pow(1 - t, 3);
+    node.textContent = `${Math.round(target * eased)}${suffix}`;
+    if (t < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
 }
 
 function statCell(label, value) {
@@ -4853,6 +4985,38 @@ function renderReview() {
 
   return wrap;
 }
+
+/* ---------- Keyboard shortcuts ---------- */
+// 1-4 / A-D pick an answer, Enter advances once answered, Escape opens
+// the End Quiz confirmation. Disabled while the modal owns focus/keys.
+function handleQuizKeydown(e) {
+  if (document.querySelector('.modal-overlay')) return;
+  if (state.screen !== 'quiz') return;
+  const q = state.questions[state.index];
+
+  if (!state.answered) {
+    const numMap = { '1': 0, '2': 1, '3': 2, '4': 3 };
+    const letMap = { a: 0, b: 1, c: 2, d: 3 };
+    let idx = null;
+    if (Object.prototype.hasOwnProperty.call(numMap, e.key)) idx = numMap[e.key];
+    else if (Object.prototype.hasOwnProperty.call(letMap, e.key.toLowerCase())) idx = letMap[e.key.toLowerCase()];
+    if (idx !== null && q.choices[idx] !== undefined) {
+      e.preventDefault();
+      submitAnswer(q.choices[idx], false);
+      return;
+    }
+  } else if (e.key === 'Enter') {
+    e.preventDefault();
+    advance();
+    return;
+  }
+
+  if (e.key === 'Escape') {
+    e.preventDefault();
+    confirmEndQuiz();
+  }
+}
+document.addEventListener('keydown', handleQuizKeydown);
 
 /* ---------- Boot ---------- */
 
