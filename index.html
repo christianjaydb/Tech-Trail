@@ -3,33 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f4f5f8">
+<meta name="theme-color" content="#0a0d12">
 <title>TechTrail — Computer Systems Basics</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23eef1f5'/%3E%3Crect x='9' y='9' width='14' height='14' rx='2' fill='none' stroke='%231f6fb3' stroke-width='1.6'/%3E%3Crect x='13' y='13' width='6' height='6' rx='1' fill='%23e0912f'/%3E%3Cline x1='13' y1='9' x2='13' y2='6' stroke='%231f6fb3' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='19' y1='9' x2='19' y2='6' stroke='%231f6fb3' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='13' y1='23' x2='13' y2='26' stroke='%231f6fb3' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='19' y1='23' x2='19' y2='26' stroke='%231f6fb3' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='9' y1='13' x2='6' y2='13' stroke='%231f6fb3' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='9' y1='19' x2='6' y2='19' stroke='%231f6fb3' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='23' y1='13' x2='26' y2='13' stroke='%231f6fb3' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='23' y1='19' x2='26' y2='19' stroke='%231f6fb3' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230c1017'/%3E%3Crect x='9' y='9' width='14' height='14' rx='2' fill='none' stroke='%2333c9f2' stroke-width='1.6'/%3E%3Crect x='13' y='13' width='6' height='6' rx='1' fill='%23f0a63e'/%3E%3Cline x1='13' y1='9' x2='13' y2='6' stroke='%2333c9f2' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='19' y1='9' x2='19' y2='6' stroke='%2333c9f2' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='13' y1='23' x2='13' y2='26' stroke='%2333c9f2' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='19' y1='23' x2='19' y2='26' stroke='%2333c9f2' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='9' y1='13' x2='6' y2='13' stroke='%2333c9f2' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='9' y1='19' x2='6' y2='19' stroke='%2333c9f2' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='23' y1='13' x2='26' y2='13' stroke='%2333c9f2' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='23' y1='19' x2='26' y2='19' stroke='%2333c9f2' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ===== Tokens — cool tech palette, blue / amber complements ===== */
 :root{
-  --bg:#f4f5f8;
-  --bg-soft:#eceef2;
-  --panel:rgba(255,255,255,0.72);
-  --panel-alt:rgba(255,255,255,0.94);
-  --border:#dfe2e8;
-  --border-bright:#c2c8d3;
-  --text:#22262e;
-  --text-dim:#5a6270;
-  --text-faint:#8b93a3;
-  --accent:#3d8fd6;       /* tech blue */
-  --accent-hi:#1f6fb3;
-  --accent-dim:#e3eef8;
-  --gold:#e0912f;         /* amber — complementary secondary accent */
-  --gold-dim:#faecd9;
-  --danger:#d1483c;
-  --danger-dim:#fbe2df;
-  --radius:16px;
-  --radius-sm:12px;
+  --bg:#0a0d12;
+  --bg-soft:#0d1117;
+  --panel:rgba(19,24,32,0.66);
+  --panel-alt:rgba(23,29,39,0.94);
+  --border:#212a37;
+  --border-bright:#3a4759;
+  --text:#e7ecf3;
+  --text-dim:#8b96a8;
+  --text-faint:#57647a;
+  --accent:#33c9f2;       /* signal cyan */
+  --accent-hi:#7fe1ff;
+  --accent-dim:rgba(51,201,242,0.11);
+  --gold:#f0a63e;         /* amber — complementary secondary accent */
+  --gold-dim:rgba(240,166,62,0.13);
+  --danger:#ff6b5e;
+  --danger-dim:rgba(255,107,94,0.11);
+  --ok:#48d98a;            /* easy / correct-adjacent green */
+  --ok-dim:rgba(72,217,138,0.11);
+  --on-accent:#05090d;    /* dark text set on bright accent fills */
+  --radius:10px;
+  --radius-sm:7px;
   --font-display:'Space Grotesk','Inter',system-ui,-apple-system,sans-serif;
   --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   --font-body:'Inter',system-ui,-apple-system,sans-serif;
@@ -37,12 +40,28 @@
 
 *{box-sizing:border-box;}
 html,body{height:100%;}
+html{
+  background:
+    radial-gradient(ellipse 1000px 560px at 10% -8%, rgba(51,201,242,0.10) 0%, transparent 58%),
+    radial-gradient(ellipse 800px 560px at 96% 104%, rgba(240,166,62,0.07) 0%, transparent 58%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.022) 0px, rgba(255,255,255,0.022) 1px, transparent 1px, transparent 44px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.022) 0px, rgba(255,255,255,0.022) 1px, transparent 1px, transparent 44px),
+    var(--bg);
+  background-attachment:fixed;
+  scrollbar-color:var(--border-bright) var(--bg);
+  scrollbar-width:thin;
+}
+::-webkit-scrollbar{width:11px;height:11px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{
+  background:var(--border-bright);
+  border-radius:8px;
+  border:2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover{background:var(--accent-dim);}
 body{
   margin:0;
-  background:
-    radial-gradient(ellipse 900px 500px at 12% -10%, rgba(61,143,214,0.09) 0%, transparent 60%),
-    radial-gradient(ellipse 700px 500px at 92% 100%, rgba(224,145,47,0.07) 0%, transparent 60%),
-    var(--bg);
+  background:transparent;
   color:var(--text);
   font-family:var(--font-body);
   min-height:100vh;
@@ -91,12 +110,13 @@ button{font-family:inherit;}
 }
 .brand-mark{
   width:42px;height:42px;
-  border-radius:12px;
+  border-radius:9px;
   background:var(--panel-alt);
-  border:1px solid var(--border);
+  border:1px solid var(--border-bright);
+  color:var(--accent);
   display:flex;align-items:center;justify-content:center;
   flex-shrink:0;
-  box-shadow:0 4px 14px -6px rgba(34,38,46,0.14);
+  box-shadow:0 4px 14px -6px rgba(0,0,0,0.45), 0 0 16px -8px rgba(51,201,242,0.4);
 }
 .brand-mark svg{display:block;width:23px;height:23px;}
 .brand-word{
@@ -112,12 +132,22 @@ button{font-family:inherit;}
   color:var(--accent-hi);
 }
 .brand-tag{
-  font-family:var(--font-body);
-  font-size:12px;
+  font-family:var(--font-mono);
+  font-size:11.5px;
   color:var(--accent-hi);
-  letter-spacing:.02em;
+  letter-spacing:.03em;
   opacity:.9;
+  display:inline-flex;align-items:center;
 }
+.brand-tag::after{
+  content:'';
+  display:inline-block;
+  width:6px;height:12px;
+  margin-left:6px;
+  background:var(--accent-hi);
+  animation:cursorBlink 1.1s step-end infinite;
+}
+@keyframes cursorBlink{0%,49%{opacity:1;}50%,100%{opacity:0;}}
 
 /* ===== Screens ===== */
 .screen{animation:fadein .35s ease both;}
@@ -194,7 +224,7 @@ button{font-family:inherit;}
   border-color:var(--accent);
   background:var(--panel-alt);
   transform:translateY(-2px);
-  box-shadow:0 12px 26px -18px rgba(34,38,46,0.22);
+  box-shadow:0 12px 26px -18px rgba(0,0,0,0.5), 0 0 0 1px rgba(51,201,242,0.15), 0 0 24px -6px rgba(51,201,242,0.25);
 }
 .mode-card .mode-name{
   font-family:var(--font-display);
@@ -223,7 +253,7 @@ button{font-family:inherit;}
   border:1px solid var(--border);
   border-radius:var(--radius);
   padding:26px;
-  box-shadow:0 16px 34px -28px rgba(34,38,46,0.24);
+  box-shadow:0 16px 34px -28px rgba(0,0,0,0.5);
 }
 .panel h2{
   font-family:var(--font-display);
@@ -240,9 +270,9 @@ button{font-family:inherit;}
   border:1px solid var(--border);
   color:var(--text);
   padding:11px 18px;
-  border-radius:999px;
-  font-family:var(--font-body);
-  font-size:13.5px;
+  border-radius:var(--radius-sm);
+  font-family:var(--font-mono);
+  font-size:12.5px;
   cursor:pointer;
   transition:border-color .15s ease, background .15s ease, color .15s ease, box-shadow .15s ease;
   min-height:40px;
@@ -256,21 +286,21 @@ button{font-family:inherit;}
 }
 
 .primary-btn{
-  background:var(--accent-hi);
-  color:#f5f8fc;
+  background:var(--accent);
+  color:var(--on-accent);
   border:none;
   padding:13px 24px;
-  border-radius:999px;
-  font-family:var(--font-display);
+  border-radius:var(--radius-sm);
+  font-family:var(--font-mono);
   font-weight:700;
-  font-size:14px;
-  letter-spacing:.01em;
+  font-size:13.5px;
+  letter-spacing:.02em;
   cursor:pointer;
   transition:filter .15s ease, transform .15s ease, box-shadow .15s ease;
-  box-shadow:0 8px 20px -8px rgba(31,111,179,0.5);
+  box-shadow:0 8px 20px -8px rgba(51,201,242,0.45), 0 0 0 1px rgba(51,201,242,0.3) inset;
   min-height:46px;
 }
-.primary-btn:hover{filter:brightness(1.06);transform:translateY(-1px);box-shadow:0 10px 24px -6px rgba(31,111,179,0.55);}
+.primary-btn:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 10px 26px -6px rgba(51,201,242,0.55), 0 0 0 1px rgba(51,201,242,0.35) inset;}
 .primary-btn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none;}
 
 .ghost-btn{
@@ -278,9 +308,10 @@ button{font-family:inherit;}
   color:var(--text-dim);
   border:1px solid var(--border);
   padding:12px 20px;
-  border-radius:999px;
-  font-family:var(--font-body);
-  font-size:13.5px;
+  border-radius:var(--radius-sm);
+  font-family:var(--font-mono);
+  font-size:13px;
+  letter-spacing:.01em;
   cursor:pointer;
   transition:border-color .15s ease,color .15s ease,background .15s ease;
   min-height:46px;
@@ -292,8 +323,8 @@ button{font-family:inherit;}
 /* ===== Modal (custom confirm — avoids blocked native dialogs) ===== */
 .modal-overlay{
   position:fixed;inset:0;
-  background:rgba(20,23,28,0.45);
-  backdrop-filter:blur(2px);
+  background:rgba(4,6,9,0.65);
+  backdrop-filter:blur(3px);
   display:flex;align-items:center;justify-content:center;
   padding:20px;
   z-index:100;
@@ -301,12 +332,12 @@ button{font-family:inherit;}
 }
 .modal-box{
   background:var(--panel-alt);
-  border:1px solid var(--border);
+  border:1px solid var(--border-bright);
   border-radius:var(--radius);
   padding:24px;
   max-width:380px;
   width:100%;
-  box-shadow:0 24px 48px -20px rgba(20,23,28,0.35);
+  box-shadow:0 24px 48px -20px rgba(0,0,0,0.7);
 }
 .modal-title{
   font-family:var(--font-display);
@@ -326,7 +357,8 @@ button{font-family:inherit;}
 .modal-actions .ghost-btn,.modal-actions .primary-btn{min-height:42px;padding:10px 18px;}
 .primary-btn.danger{
   background:var(--danger);
-  box-shadow:0 8px 20px -8px rgba(209,72,60,0.55);
+  color:#1a0806;
+  box-shadow:0 8px 20px -8px rgba(255,107,94,0.5), 0 0 0 1px rgba(255,107,94,0.3) inset;
 }
 .primary-btn.danger:hover{filter:brightness(1.06);}
 
@@ -410,7 +442,7 @@ button{font-family:inherit;}
 }
 .telemetry .cell .v.accent{color:var(--accent-hi);}
 .telemetry .cell .v.amber{color:var(--gold);}
-.telemetry .cell .v.diff-easy{color:#5c9968;}
+.telemetry .cell .v.diff-easy{color:var(--ok);}
 .telemetry .cell .v.diff-medium{color:var(--gold);}
 .telemetry .cell .v.diff-hard{color:var(--danger);}
 
@@ -427,8 +459,8 @@ button{font-family:inherit;}
 .timer-cell.low .timer-bar-fill{background:var(--gold);}
 
 @keyframes cellPulse{
-  0%{box-shadow:0 0 0 0 rgba(31,111,179,0.35);}
-  100%{box-shadow:0 0 0 8px rgba(31,111,179,0);}
+  0%{box-shadow:0 0 0 0 rgba(51,201,242,0.35);}
+  100%{box-shadow:0 0 0 8px rgba(51,201,242,0);}
 }
 .telemetry .cell.pulse{animation:cellPulse .5s ease-out;}
 
@@ -472,7 +504,7 @@ button{font-family:inherit;}
   border:1px solid var(--border);
   border-radius:var(--radius);
   padding:26px 24px;
-  box-shadow:0 16px 34px -28px rgba(34,38,46,0.24);
+  box-shadow:0 16px 34px -28px rgba(0,0,0,0.5);
 }
 .q-meta{
   display:flex;gap:9px;align-items:center;flex-wrap:wrap;
@@ -488,9 +520,9 @@ button{font-family:inherit;}
   color:var(--text-dim);
   font-weight:600;
 }
-.q-tag.diff-easy{color:#4d8858;border-color:#c7dfc8;background:#eef6ee;}
-.q-tag.diff-medium{color:var(--gold);border-color:var(--gold-dim);background:#fbf1e5;}
-.q-tag.diff-hard{color:var(--danger);border-color:var(--danger-dim);background:#faeae7;}
+.q-tag.diff-easy{color:var(--ok);border-color:rgba(72,217,138,0.3);background:var(--ok-dim);}
+.q-tag.diff-medium{color:var(--gold);border-color:rgba(240,166,62,0.3);background:var(--gold-dim);}
+.q-tag.diff-hard{color:var(--danger);border-color:rgba(255,107,94,0.3);background:var(--danger-dim);}
 
 .q-text{
   font-family:var(--font-body);
@@ -533,12 +565,12 @@ button{font-family:inherit;}
   border-color:var(--accent);
   background:var(--accent-dim);
 }
-.choice-btn.correct .letter{background:var(--accent-hi);color:#f5f8fc;border-color:var(--accent-hi);}
+.choice-btn.correct .letter{background:var(--accent);color:var(--on-accent);border-color:var(--accent);}
 .choice-btn.incorrect{
   border-color:var(--danger);
   background:var(--danger-dim);
 }
-.choice-btn.incorrect .letter{background:var(--danger);color:#fdf3f2;border-color:var(--danger);}
+.choice-btn.incorrect .letter{background:var(--danger);color:var(--on-accent);border-color:var(--danger);}
 .choice-btn.dim{opacity:.45;}
 
 .feedback{
@@ -550,14 +582,14 @@ button{font-family:inherit;}
   line-height:1.6;
   border:1px solid var(--border);
 }
-.feedback.ok{border-color:#c7dfc8;background:#eef6ee;}
-.feedback.no{border-color:var(--danger-dim);background:#faeae7;}
+.feedback.ok{border-color:rgba(72,217,138,0.3);background:var(--ok-dim);}
+.feedback.no{border-color:rgba(255,107,94,0.3);background:var(--danger-dim);}
 .feedback .status-line{
   font-weight:700;
   letter-spacing:0;
   margin-bottom:6px;
 }
-.feedback.ok .status-line{color:var(--accent-hi);}
+.feedback.ok .status-line{color:var(--ok);}
 .feedback.no .status-line{color:var(--danger);}
 .feedback .explain{color:var(--text-dim);font-family:var(--font-body);font-size:13.5px;}
 
@@ -603,7 +635,7 @@ button{font-family:inherit;}
 .rating-banner::before{
   content:'';
   position:absolute;inset:0;
-  background:radial-gradient(circle at 50% 0%, rgba(92,144,128,0.10), transparent 65%);
+  background:radial-gradient(circle at 50% 0%, rgba(51,201,242,0.14), transparent 65%);
   pointer-events:none;
 }
 .rating-banner .pct{
@@ -613,11 +645,12 @@ button{font-family:inherit;}
   color:var(--accent-hi);
   line-height:1;
   position:relative;
+  text-shadow:0 0 28px rgba(127,225,255,0.35);
 }
 .rating-banner .label{
-  font-family:var(--font-body);
-  font-size:13.5px;
-  letter-spacing:.02em;
+  font-family:var(--font-mono);
+  font-size:13px;
+  letter-spacing:.03em;
   color:var(--text-dim);
   margin-top:12px;
   position:relative;
@@ -677,7 +710,7 @@ button{font-family:inherit;}
     padding:12px 16px calc(12px + env(safe-area-inset-bottom));
     background:linear-gradient(var(--bg-soft), var(--bg-soft) 60%, var(--bg-soft));
     border-top:1px solid var(--border);
-    box-shadow:0 -12px 20px -12px rgba(34,38,46,0.12);
+    box-shadow:0 -12px 20px -12px rgba(0,0,0,0.4);
   }
   .q-footer .primary-btn{width:100%;}
   .modal-actions{flex-direction:column-reverse;}
@@ -4310,6 +4343,756 @@ const QUESTION_POOL = [
 ],
 "answer":"80",
 "explanation":"Port 80 is the standard port used for unencrypted HTTP traffic, while port 443 is used for HTTPS."
+},
+{
+"id":244,
+"category":"Interfaces & Ports",
+"difficulty":"Easy",
+"type":"multiple-choice",
+"question":"Which interface is commonly used to connect external storage drives and supports both power and data over a single reversible connector?",
+"choices":[
+"USB-C",
+"PS/2",
+"VGA",
+"Serial (RS-232)"
+],
+"answer":"USB-C",
+"explanation":"USB-C is a modern, reversible connector that can carry both data and power, making it common for external drives and many other peripherals."
+},
+{
+"id":245,
+"category":"Interfaces & Ports",
+"difficulty":"Easy",
+"type":"multiple-choice",
+"question":"Which port is the standard modern interface for carrying high-definition digital video and audio over a single cable?",
+"choices":[
+"HDMI",
+"PS/2",
+"VGA",
+"Serial"
+],
+"answer":"HDMI",
+"explanation":"HDMI (High-Definition Multimedia Interface) carries both digital video and audio over one cable and is standard on most modern displays."
+},
+{
+"id":246,
+"category":"Interfaces & Ports",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"What is the main advantage of DisplayPort or HDMI over older VGA connections for a monitor?",
+"choices":[
+"They carry a fully digital signal for sharper image quality",
+"They use a wireless connection",
+"They only carry audio, no video",
+"They require no driver software"
+],
+"answer":"They carry a fully digital signal for sharper image quality",
+"explanation":"VGA is an analog standard, while DisplayPort and HDMI are digital, which generally produces a sharper, more accurate image on modern displays."
+},
+{
+"id":247,
+"category":"Interfaces & Ports",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"Which port type, once standard for connecting keyboards and mice, has largely been replaced by USB?",
+"choices":[
+"PS/2",
+"HDMI",
+"Ethernet (RJ-45)",
+"SATA"
+],
+"answer":"PS/2",
+"explanation":"PS/2 ports were the older standard for keyboards and mice before USB became the universal connector for most peripherals."
+},
+{
+"id":248,
+"category":"Interfaces & Ports",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"An RJ-45 connector is most commonly used to terminate which type of cable?",
+"choices":[
+"Ethernet twisted-pair cable",
+"Coaxial cable",
+"Fiber optic cable",
+"Phone line (RJ-11)"
+],
+"answer":"Ethernet twisted-pair cable",
+"explanation":"RJ-45 connectors terminate twisted-pair Ethernet cables used for wired networking."
+},
+{
+"id":249,
+"category":"Interfaces & Ports",
+"difficulty":"Hard",
+"type":"multiple-choice",
+"question":"Which of these interfaces is specifically designed for connecting internal storage drives to a motherboard?",
+"choices":[
+"SATA",
+"HDMI",
+"USB-C",
+"Thunderbolt"
+],
+"answer":"SATA",
+"explanation":"SATA (Serial ATA) is the standard internal interface for connecting hard drives and SSDs to a motherboard, while the other options are primarily external interfaces."
+},
+{
+"id":250,
+"category":"Files & Folders",
+"difficulty":"Easy",
+"type":"multiple-choice",
+"question":"What is the term for the location or address of a file within a storage system?",
+"choices":[
+"File path",
+"File extension",
+"File size",
+"File format"
+],
+"answer":"File path",
+"explanation":"A file path describes the exact location of a file within a folder structure, such as C:\\Users\\Name\\file.txt."
+},
+{
+"id":251,
+"category":"Files & Folders",
+"difficulty":"Easy",
+"type":"multiple-choice",
+"question":"Which of these is an example of a file extension?",
+"choices":[
+".docx",
+"C:\\Users",
+"Root folder",
+"My Documents"
+],
+"answer":".docx",
+"explanation":"A file extension like .docx appears after the filename and indicates the file's format or type."
+},
+{
+"id":252,
+"category":"Files & Folders",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"What does it mean to 'compress' a group of files, such as into a .zip archive?",
+"choices":[
+"Combine and reduce their size for storage or transfer",
+"Permanently delete unused files",
+"Convert files to a different file format",
+"Encrypt files so they cannot be opened"
+],
+"answer":"Combine and reduce their size for storage or transfer",
+"explanation":"Compression bundles files together and reduces their overall size, making them easier to store or send."
+},
+{
+"id":253,
+"category":"Files & Folders",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"In a hierarchical file system, what is the topmost folder called?",
+"choices":[
+"Root directory",
+"Subdirectory",
+"Recycle Bin",
+"Working directory"
+],
+"answer":"Root directory",
+"explanation":"The root directory is the top-level folder from which all other folders and files branch out."
+},
+{
+"id":254,
+"category":"Files & Folders",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"What happens when you 'move' a file to a new folder, compared to 'copying' it?",
+"choices":[
+"Moving removes it from the original location; copying leaves the original in place",
+"Moving and copying always leave the file in both locations",
+"Moving deletes the file permanently",
+"Copying always compresses the file"
+],
+"answer":"Moving removes it from the original location; copying leaves the original in place",
+"explanation":"Moving relocates the file entirely, while copying creates a duplicate and keeps the original where it was."
+},
+{
+"id":255,
+"category":"Files & Folders",
+"difficulty":"Hard",
+"type":"multiple-choice",
+"question":"Why can't two files in the same folder normally share the exact same filename?",
+"choices":[
+"The file system uses the filename to uniquely identify files within that folder",
+"File names are case-insensitive on every operating system",
+"Filenames are used only for display, not identification",
+"Every file system requires unique file sizes"
+],
+"answer":"The file system uses the filename to uniquely identify files within that folder",
+"explanation":"Within a single folder, the filename (plus extension) acts as a unique identifier, so duplicates aren't allowed in the same location."
+},
+{
+"id":256,
+"category":"Command-Line Tools",
+"difficulty":"Easy",
+"type":"multiple-choice",
+"question":"In a Windows Command Prompt, which command lists the files and folders in the current directory?",
+"choices":[
+"dir",
+"ls",
+"cd",
+"pwd"
+],
+"answer":"dir",
+"explanation":"The dir command lists directory contents in Windows Command Prompt; ls is the Linux/macOS equivalent."
+},
+{
+"id":257,
+"category":"Command-Line Tools",
+"difficulty":"Easy",
+"type":"multiple-choice",
+"question":"In a Linux or macOS terminal, which command lists the files and folders in the current directory?",
+"choices":[
+"ls",
+"dir",
+"cat",
+"mv"
+],
+"answer":"ls",
+"explanation":"ls lists directory contents in Unix-like systems; dir is the Windows equivalent."
+},
+{
+"id":258,
+"category":"Command-Line Tools",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"Which command-line tool is commonly used to test whether a remote host is reachable over a network?",
+"choices":[
+"ping",
+"ipconfig",
+"chkdsk",
+"tasklist"
+],
+"answer":"ping",
+"explanation":"ping sends test packets to a target host and reports whether it responds, checking basic network reachability."
+},
+{
+"id":259,
+"category":"Command-Line Tools",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"What does the 'cd' command do in a command-line interface?",
+"choices":[
+"Changes the current working directory",
+"Copies a file to a new destination",
+"Deletes a directory",
+"Displays the computer's date"
+],
+"answer":"Changes the current working directory",
+"explanation":"cd (change directory) moves your current location in the file system to a different folder."
+},
+{
+"id":260,
+"category":"Command-Line Tools",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"In Windows Command Prompt, which command displays the computer's current IP configuration?",
+"choices":[
+"ipconfig",
+"ifconfig",
+"netstat",
+"ping"
+],
+"answer":"ipconfig",
+"explanation":"ipconfig shows IP configuration details on Windows; ifconfig is the equivalent used on Linux/macOS."
+},
+{
+"id":261,
+"category":"Command-Line Tools",
+"difficulty":"Hard",
+"type":"multiple-choice",
+"question":"What is the purpose of piping the output of one command into another using the | symbol?",
+"choices":[
+"It sends the output of the first command as input to the second command",
+"It runs both commands at the exact same time on separate CPU cores",
+"It saves the command's output permanently to a file",
+"It cancels the first command and only runs the second"
+],
+"answer":"It sends the output of the first command as input to the second command",
+"explanation":"Piping (|) chains commands together, feeding the output of one directly into the next for further processing."
+},
+{
+"id":262,
+"category":"Fundamentals",
+"difficulty":"Easy",
+"type":"multiple-choice",
+"question":"Which term refers to step-by-step instructions that tell a computer what to do?",
+"choices":[
+"Algorithm",
+"Peripheral",
+"Firmware",
+"Interface"
+],
+"answer":"Algorithm",
+"explanation":"An algorithm is a defined sequence of steps for solving a problem or completing a task."
+},
+{
+"id":263,
+"category":"Fundamentals",
+"difficulty":"Easy",
+"type":"multiple-choice",
+"question":"What is the general term for a device connected to a computer that is not part of its core processing unit, like a mouse or printer?",
+"choices":[
+"Peripheral",
+"Firmware",
+"Kernel",
+"Protocol"
+],
+"answer":"Peripheral",
+"explanation":"Peripherals are external devices, such as keyboards, mice, and printers, that connect to and interact with the core computer system."
+},
+{
+"id":264,
+"category":"Fundamentals",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"Which of these best describes 'firmware'?",
+"choices":[
+"Low-level software permanently programmed into a hardware device",
+"A type of computer virus",
+"A physical component inside the CPU",
+"A cloud storage service"
+],
+"answer":"Low-level software permanently programmed into a hardware device",
+"explanation":"Firmware is software embedded directly into hardware to control its basic functions, such as a router's or printer's built-in software."
+},
+{
+"id":265,
+"category":"Fundamentals",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"What is the difference between data and information in computing terms?",
+"choices":[
+"Data is raw, unprocessed facts; information is data that has been processed to be meaningful",
+"Data and information are identical terms with no difference",
+"Information is always stored in hardware; data is always stored in software",
+"Data only refers to numbers, while information refers to text"
+],
+"answer":"Data is raw, unprocessed facts; information is data that has been processed to be meaningful",
+"explanation":"Data becomes information once it has been organized, processed, or interpreted in a way that gives it meaning."
+},
+{
+"id":266,
+"category":"Data Units",
+"difficulty":"Easy",
+"type":"multiple-choice",
+"question":"How many bits are there in one byte?",
+"choices":[
+"8",
+"4",
+"16",
+"1024"
+],
+"answer":"8",
+"explanation":"A byte is defined as a group of 8 bits, the standard unit used to represent a single character."
+},
+{
+"id":267,
+"category":"Data Units",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"Which of these correctly orders data units from smallest to largest?",
+"choices":[
+"Byte, Kilobyte, Megabyte, Gigabyte",
+"Bit, Byte, Terabyte, Kilobyte",
+"Gigabyte, Megabyte, Kilobyte, Byte",
+"Megabyte, Byte, Kilobyte, Gigabyte"
+],
+"answer":"Byte, Kilobyte, Megabyte, Gigabyte",
+"explanation":"Each unit in this sequence is roughly 1,024 times larger than the one before it: Byte < Kilobyte < Megabyte < Gigabyte."
+},
+{
+"id":268,
+"category":"Data Units",
+"difficulty":"Hard",
+"type":"multiple-choice",
+"question":"Approximately how many bytes are in one gigabyte, using the standard 1024-based binary convention?",
+"choices":[
+"About 1.07 billion bytes",
+"About 1 million bytes",
+"About 1 trillion bytes",
+"About 1,000 bytes"
+],
+"answer":"About 1.07 billion bytes",
+"explanation":"Using binary convention, 1 GB = 1024 MB = 1024 x 1024 KB = 1024 x 1024 x 1024 bytes, which is roughly 1.07 billion bytes."
+},
+{
+"id":269,
+"category":"Storage",
+"difficulty":"Easy",
+"type":"multiple-choice",
+"question":"Which type of storage device has no moving mechanical parts and uses flash memory chips?",
+"choices":[
+"SSD (Solid State Drive)",
+"HDD (Hard Disk Drive)",
+"Optical disc drive",
+"Floppy disk drive"
+],
+"answer":"SSD (Solid State Drive)",
+"explanation":"SSDs store data on flash memory chips with no spinning platters or moving read/write heads, unlike HDDs."
+},
+{
+"id":270,
+"category":"Storage",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"What is the main reason SSDs generally outperform traditional HDDs in speed?",
+"choices":[
+"SSDs have no spinning disk or moving read/write head to wait for",
+"SSDs always have more total storage capacity",
+"SSDs use a completely different file system",
+"SSDs require constant internet access"
+],
+"answer":"SSDs have no spinning disk or moving read/write head to wait for",
+"explanation":"Because SSDs access data electronically rather than mechanically, they avoid the delays caused by a spinning disk and moving read/write head."
+},
+{
+"id":271,
+"category":"Storage",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"What does 'cloud storage' refer to?",
+"choices":[
+"Saving data on remote servers accessed over the internet",
+"Storing data exclusively on a local hard drive",
+"A type of RAM used for temporary storage",
+"A method of compressing files to save local space"
+],
+"answer":"Saving data on remote servers accessed over the internet",
+"explanation":"Cloud storage keeps data on remote servers maintained by a provider, accessible over the internet from any connected device."
+},
+{
+"id":272,
+"category":"Software & IT Support",
+"difficulty":"Easy",
+"type":"multiple-choice",
+"question":"What is the general term for a program designed to detect and remove malicious software?",
+"choices":[
+"Antivirus software",
+"Operating system",
+"Device driver",
+"Firmware"
+],
+"answer":"Antivirus software",
+"explanation":"Antivirus software scans for, blocks, and removes malware such as viruses, worms, and trojans."
+},
+{
+"id":273,
+"category":"Software & IT Support",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"When troubleshooting a printer that won't print, which step is usually recommended first?",
+"choices":[
+"Check that the printer is powered on and properly connected",
+"Reinstall the entire operating system",
+"Replace the printer's motherboard",
+"Format the printer's internal storage"
+],
+"answer":"Check that the printer is powered on and properly connected",
+"explanation":"Good troubleshooting starts with the simplest, most likely causes, like power and connection issues, before more drastic steps."
+},
+{
+"id":274,
+"category":"Software & IT Support",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"What is a 'ticketing system' commonly used for in IT support environments?",
+"choices":[
+"Tracking and managing reported technical issues from request to resolution",
+"Selling software licenses to customers",
+"Scheduling employee vacation time",
+"Monitoring network bandwidth usage only"
+],
+"answer":"Tracking and managing reported technical issues from request to resolution",
+"explanation":"A ticketing system logs support requests as 'tickets' so technicians can track, prioritize, and resolve issues systematically."
+},
+{
+"id":275,
+"category":"GUI & Processes",
+"difficulty":"Easy",
+"type":"multiple-choice",
+"question":"In most desktop operating systems, what does double-clicking an icon typically do?",
+"choices":[
+"Opens the associated file or program",
+"Deletes the file permanently",
+"Renames the file",
+"Copies the file to another drive"
+],
+"answer":"Opens the associated file or program",
+"explanation":"Double-clicking is the standard GUI action for launching a program or opening a file."
+},
+{
+"id":276,
+"category":"GUI & Processes",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"What is a 'process' in the context of an operating system?",
+"choices":[
+"An instance of a program that is currently being executed",
+"A saved file on the hard drive",
+"A type of peripheral device",
+"A network cable connection"
+],
+"answer":"An instance of a program that is currently being executed",
+"explanation":"A process is a running instance of a program, with its own allocated memory and system resources."
+},
+{
+"id":277,
+"category":"File Systems",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"Which file system is commonly used as the default for modern Windows installations?",
+"choices":[
+"NTFS",
+"FAT32",
+"ext4",
+"APFS"
+],
+"answer":"NTFS",
+"explanation":"NTFS (New Technology File System) is the default file system for modern Windows, offering better security and larger file support than FAT32."
+},
+{
+"id":278,
+"category":"File Systems",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"What is the purpose of 'defragmentation' on a traditional hard disk drive?",
+"choices":[
+"Reorganizing fragmented data so related pieces are stored closer together for faster access",
+"Permanently deleting old files to free up space",
+"Encrypting all files on the drive",
+"Converting the drive to a different file system"
+],
+"answer":"Reorganizing fragmented data so related pieces are stored closer together for faster access",
+"explanation":"Defragmentation rearranges scattered file fragments so the drive's read/write head can access them more efficiently."
+},
+{
+"id":279,
+"category":"Peripherals",
+"difficulty":"Easy",
+"type":"multiple-choice",
+"question":"Which of these is considered an input device?",
+"choices":[
+"Keyboard",
+"Monitor",
+"Speaker",
+"Printer"
+],
+"answer":"Keyboard",
+"explanation":"A keyboard sends data (keystrokes) into the computer, making it an input device."
+},
+{
+"id":280,
+"category":"Peripherals",
+"difficulty":"Easy",
+"type":"multiple-choice",
+"question":"Which of these is considered an output device?",
+"choices":[
+"Monitor",
+"Mouse",
+"Keyboard",
+"Scanner"
+],
+"answer":"Monitor",
+"explanation":"A monitor displays information produced by the computer, making it an output device."
+},
+{
+"id":281,
+"category":"Networking Basics",
+"difficulty":"Easy",
+"type":"multiple-choice",
+"question":"What does 'LAN' stand for?",
+"choices":[
+"Local Area Network",
+"Large Access Node",
+"Linked Adapter Network",
+"Long-range Area Node"
+],
+"answer":"Local Area Network",
+"explanation":"A LAN connects devices within a limited area, such as a home, office, or school building."
+},
+{
+"id":282,
+"category":"Networking Basics",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"What is the primary purpose of a router in a home network?",
+"choices":[
+"To direct data traffic between the local network and the internet",
+"To physically store files for all connected devices",
+"To provide electrical power to connected devices",
+"To scan documents wirelessly"
+],
+"answer":"To direct data traffic between the local network and the internet",
+"explanation":"A router forwards data packets between the local network and external networks like the internet, directing traffic to the right destination."
+},
+{
+"id":283,
+"category":"Networking Basics",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"What is the difference between a switch and a hub in a wired network?",
+"choices":[
+"A switch intelligently directs data only to its intended device; a hub broadcasts to all connected devices",
+"A hub is faster than a switch in every scenario",
+"A switch only works wirelessly",
+"A hub encrypts network traffic while a switch does not"
+],
+"answer":"A switch intelligently directs data only to its intended device; a hub broadcasts to all connected devices",
+"explanation":"Switches use MAC addresses to send data only to the intended recipient, while hubs simply broadcast data to every connected device."
+},
+{
+"id":284,
+"category":"Operating Systems",
+"difficulty":"Easy",
+"type":"multiple-choice",
+"question":"Which of these is an example of an operating system?",
+"choices":[
+"Windows",
+"Microsoft Word",
+"Google Chrome",
+"Adobe Photoshop"
+],
+"answer":"Windows",
+"explanation":"Windows is an operating system that manages hardware and software resources, unlike Word, Chrome, or Photoshop, which are applications that run on top of it."
+},
+{
+"id":285,
+"category":"Operating Systems",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"What is the 'kernel' of an operating system?",
+"choices":[
+"The core component that manages hardware resources and communication between hardware and software",
+"The graphical desktop background",
+"A folder containing user documents",
+"A type of external storage device"
+],
+"answer":"The core component that manages hardware resources and communication between hardware and software",
+"explanation":"The kernel is the operating system's core, handling low-level tasks like memory management and hardware communication."
+},
+{
+"id":286,
+"category":"Operating Systems",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"What is 'multitasking' in the context of an operating system?",
+"choices":[
+"The ability to run multiple programs or processes seemingly at the same time",
+"The ability to connect to multiple monitors",
+"The ability to store multiple user accounts",
+"The ability to install multiple operating systems on one drive"
+],
+"answer":"The ability to run multiple programs or processes seemingly at the same time",
+"explanation":"Multitasking lets an operating system rapidly switch between processes so multiple programs appear to run simultaneously."
+},
+{
+"id":287,
+"category":"Hardware",
+"difficulty":"Easy",
+"type":"multiple-choice",
+"question":"Which component is often referred to as the 'brain' of the computer?",
+"choices":[
+"CPU (Central Processing Unit)",
+"RAM",
+"Power Supply Unit",
+"Motherboard"
+],
+"answer":"CPU (Central Processing Unit)",
+"explanation":"The CPU executes instructions and performs calculations, earning its reputation as the computer's 'brain'."
+},
+{
+"id":288,
+"category":"Hardware",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"What is the main function of RAM (Random Access Memory) in a computer?",
+"choices":[
+"Temporarily storing data that the CPU needs quick access to while running programs",
+"Permanently storing the operating system files",
+"Providing electrical power to internal components",
+"Displaying visual output to the monitor"
+],
+"answer":"Temporarily storing data that the CPU needs quick access to while running programs",
+"explanation":"RAM holds data and instructions currently in use so the CPU can access them quickly, but it clears when the computer powers off."
+},
+{
+"id":289,
+"category":"Networking Protocols",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"Which protocol is used to securely encrypt web traffic between a browser and a website?",
+"choices":[
+"HTTPS",
+"HTTP",
+"FTP",
+"Telnet"
+],
+"answer":"HTTPS",
+"explanation":"HTTPS adds encryption (via TLS/SSL) on top of HTTP, securing data exchanged between a browser and a website."
+},
+{
+"id":290,
+"category":"Cybersecurity",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"What is 'phishing' in the context of cybersecurity?",
+"choices":[
+"A deceptive attempt to trick someone into revealing sensitive information, usually via fake emails or messages",
+"A method of physically stealing a computer",
+"A type of firewall configuration",
+"A technique for compressing files securely"
+],
+"answer":"A deceptive attempt to trick someone into revealing sensitive information, usually via fake emails or messages",
+"explanation":"Phishing attacks impersonate trustworthy sources to trick victims into revealing passwords, financial details, or other sensitive data."
+},
+{
+"id":291,
+"category":"Networking Concepts",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"What does 'bandwidth' refer to in networking?",
+"choices":[
+"The maximum amount of data that can be transferred over a network connection in a given time",
+"The physical length of a network cable",
+"The number of devices connected to a router",
+"The brand of networking hardware used"
+],
+"answer":"The maximum amount of data that can be transferred over a network connection in a given time",
+"explanation":"Bandwidth measures a network connection's data-carrying capacity, usually expressed in bits per second."
+},
+{
+"id":292,
+"category":"Troubleshooting",
+"difficulty":"Easy",
+"type":"multiple-choice",
+"question":"A computer won't turn on at all. What is usually the first thing to check?",
+"choices":[
+"Whether the power cable is properly plugged in and the outlet works",
+"Whether the operating system needs reinstalling",
+"Whether the hard drive is fragmented",
+"Whether the antivirus software is up to date"
+],
+"answer":"Whether the power cable is properly plugged in and the outlet works",
+"explanation":"Basic power issues are the most common and easiest cause to rule out before investigating more complex hardware or software problems."
+},
+{
+"id":293,
+"category":"Troubleshooting",
+"difficulty":"Medium",
+"type":"multiple-choice",
+"question":"A user reports their internet is 'down,' but other devices on the same network are working fine. What does this suggest?",
+"choices":[
+"The issue is likely local to that specific device rather than the network itself",
+"The internet service provider is definitely experiencing an outage",
+"The router needs to be replaced immediately",
+"The issue must be a virus infection"
+],
+"answer":"The issue is likely local to that specific device rather than the network itself",
+"explanation":"If other devices on the same network connect fine, the problem is most likely isolated to that one device's settings or hardware, not the network as a whole."
 }
 ];
 
@@ -4628,16 +5411,16 @@ function el(tag, attrs = {}, children = []) {
 
 const TRAIL_MARK_SVG = `
 <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <rect x="9" y="9" width="14" height="14" rx="2" stroke="#1f6fb3" stroke-width="1.6"/>
-  <rect x="13" y="13" width="6" height="6" rx="1" fill="#e0912f"/>
-  <line x1="13" y1="9" x2="13" y2="6" stroke="#1f6fb3" stroke-width="1.6" stroke-linecap="round"/>
-  <line x1="19" y1="9" x2="19" y2="6" stroke="#1f6fb3" stroke-width="1.6" stroke-linecap="round"/>
-  <line x1="13" y1="23" x2="13" y2="26" stroke="#1f6fb3" stroke-width="1.6" stroke-linecap="round"/>
-  <line x1="19" y1="23" x2="19" y2="26" stroke="#1f6fb3" stroke-width="1.6" stroke-linecap="round"/>
-  <line x1="9" y1="13" x2="6" y2="13" stroke="#1f6fb3" stroke-width="1.6" stroke-linecap="round"/>
-  <line x1="9" y1="19" x2="6" y2="19" stroke="#1f6fb3" stroke-width="1.6" stroke-linecap="round"/>
-  <line x1="23" y1="13" x2="26" y2="13" stroke="#1f6fb3" stroke-width="1.6" stroke-linecap="round"/>
-  <line x1="23" y1="19" x2="26" y2="19" stroke="#1f6fb3" stroke-width="1.6" stroke-linecap="round"/>
+  <rect x="9" y="9" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/>
+  <rect x="13" y="13" width="6" height="6" rx="1" fill="#f0a63e"/>
+  <line x1="13" y1="9" x2="13" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="19" y1="9" x2="19" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="13" y1="23" x2="13" y2="26" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="19" y1="23" x2="19" y2="26" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="9" y1="13" x2="6" y2="13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="9" y1="19" x2="6" y2="19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="23" y1="13" x2="26" y2="13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="23" y1="19" x2="26" y2="19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
 </svg>`;
 
 function renderBrandBar() {
@@ -4650,7 +5433,7 @@ function renderBrandBar() {
       })(),
       el('div', { class: 'brand-word' }, ['Tech', el('em', {}, 'Trail')]),
     ]),
-    el('div', { class: 'brand-tag' }, 'CS BASICS TRAINING ROUTE'),
+    el('div', { class: 'brand-tag' }, 'CS Basics Training Route'),
   ]);
 }
 
