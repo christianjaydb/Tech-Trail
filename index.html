@@ -8,7 +8,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230c1017'/%3E%3Crect x='9' y='9' width='14' height='14' rx='2' fill='none' stroke='%2333c9f2' stroke-width='1.6'/%3E%3Crect x='13' y='13' width='6' height='6' rx='1' fill='%23f0a63e'/%3E%3Cline x1='13' y1='9' x2='13' y2='6' stroke='%2333c9f2' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='19' y1='9' x2='19' y2='6' stroke='%2333c9f2' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='13' y1='23' x2='13' y2='26' stroke='%2333c9f2' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='19' y1='23' x2='19' y2='26' stroke='%2333c9f2' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='9' y1='13' x2='6' y2='13' stroke='%2333c9f2' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='9' y1='19' x2='6' y2='19' stroke='%2333c9f2' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='23' y1='13' x2='26' y2='13' stroke='%2333c9f2' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='23' y1='19' x2='26' y2='19' stroke='%2333c9f2' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ===== Tokens — cool tech palette, blue / amber complements ===== */
 :root{
@@ -33,9 +33,9 @@
   --on-accent:#05090d;    /* dark text set on bright accent fills */
   --radius:10px;
   --radius-sm:7px;
-  --font-display:'Space Grotesk','Inter',system-ui,-apple-system,sans-serif;
+  --font-display:'Poppins','Inter',system-ui,-apple-system,sans-serif;
   --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  --font-body:'Inter',system-ui,-apple-system,sans-serif;
+  --font-body:'Poppins',system-ui,-apple-system,sans-serif;
 }
 
 *{box-sizing:border-box;}
@@ -5141,12 +5141,6 @@ const MODES = {
 
 const MAX_CHALLENGE_MISTAKES = 5;
 
-function pointsFor(difficulty) {
-  if (difficulty === 'Easy') return 10;
-  if (difficulty === 'Medium') return 20;
-  return 30;
-}
-
 function ratingFor(pct) {
   if (pct >= 90) return 'Excellent';
   if (pct >= 80) return 'Very Good';
@@ -5275,12 +5269,6 @@ function submitAnswer(choice, timedOut) {
     state.correctCount += 1;
     state.streak += 1;
     state.highestStreak = Math.max(state.highestStreak, state.streak);
-    let gained = pointsFor(q.difficulty);
-    if (state.streak === 3) gained += 10;
-    else if (state.streak === 5) gained += 20;
-    else if (state.streak === 10) gained += 50;
-    state.score += gained;
-    state.lastGain = gained;
   } else {
     state.incorrectCount += 1;
     state.streak = 0;
@@ -5291,8 +5279,13 @@ function submitAnswer(choice, timedOut) {
       correctAnswer: q.answer,
       explanation: q.explanation,
     });
-    state.lastGain = 0;
   }
+  // Score is always the percentage of correct answers out of everything
+  // answered so far, capped between 0 and 100 — never a raw point tally.
+  const answeredSoFar = state.correctCount + state.incorrectCount;
+  state.score = answeredSoFar > 0
+    ? Math.max(0, Math.min(100, Math.round((state.correctCount / answeredSoFar) * 100)))
+    : 0;
   render();
 }
 
@@ -5535,10 +5528,9 @@ function renderQuiz() {
     el('button', { class: 'end-btn', onclick: confirmEndQuiz, type: 'button' }, ['✕ ', 'End Quiz']),
   ]));
 
-  const scoreCell = telCell('Score', String(state.score), 'accent');
-  if (state.answered && state.selected === q.answer && state.lastGain > 0) {
+  const scoreCell = telCell('Score', `${state.score}%`, 'accent');
+  if (state.answered && state.selected === q.answer) {
     scoreCell.classList.add('pulse');
-    scoreCell.appendChild(el('div', { class: 'score-pop' }, `+${state.lastGain}`));
   }
   const streakCell = telCell('Streak', String(state.streak), 'accent');
   if (state.answered && state.streak > 0 && state.selected === q.answer) {
@@ -5618,7 +5610,7 @@ function renderQuiz() {
     const wasCorrect = state.selected === q.answer;
     const fb = el('div', { class: 'feedback ' + (wasCorrect ? 'ok' : 'no'), role: 'status', 'aria-live': 'polite' });
     fb.appendChild(el('div', { class: 'status-line' },
-      wasCorrect ? `✓ CORRECT — +${state.lastGain} pts` : `✗ INCORRECT — Correct answer: ${q.answer}`));
+      wasCorrect ? '✓ CORRECT' : `✗ INCORRECT — Correct answer: ${q.answer}`));
     fb.appendChild(el('div', { class: 'explain' }, q.explanation));
     card.appendChild(fb);
 
@@ -5691,7 +5683,7 @@ function renderResults() {
   animateCountUp(pctEl, pct, '%');
 
   wrap.appendChild(el('div', { class: 'stat-grid' }, [
-    statCell('Final Score', String(state.score)),
+    statCell('Final Score', `${pct}%`),
     statCell('Correct', String(state.correctCount)),
     statCell('Incorrect', String(state.incorrectCount)),
     statCell('Accuracy', `${pct}%`),
