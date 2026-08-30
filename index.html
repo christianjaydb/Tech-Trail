@@ -417,19 +417,13 @@ button{font-family:inherit;}
   position:sticky;
   top:0;
   z-index:20;
-  background:var(--bg);
+  background:transparent;
+  backdrop-filter:blur(14px) saturate(120%);
+  -webkit-backdrop-filter:blur(14px) saturate(120%);
   padding-top:10px;
   margin:0 -2px 18px;
   padding-left:2px;
   padding-right:2px;
-}
-.quiz-stickybar::after{
-  content:'';
-  position:absolute;
-  left:0;right:0;bottom:-10px;
-  height:10px;
-  background:linear-gradient(var(--bg), transparent);
-  pointer-events:none;
 }
 .quiz-topbar{
   display:flex;
@@ -493,7 +487,7 @@ button{font-family:inherit;}
 .telemetry .cell .v.accent{color:var(--accent-hi);}
 .telemetry .cell .v.amber{color:var(--gold);}
 .telemetry .cell .v.diff-easy{color:var(--ok);}
-.telemetry .cell .v.diff-medium{color:var(--gold);}
+.telemetry .cell .v.diff-medium{color:var(--info);}
 .telemetry .cell .v.diff-hard{color:var(--danger);}
 
 .timer-cell .timer-bar{
@@ -571,7 +565,7 @@ button{font-family:inherit;}
   font-weight:600;
 }
 .q-tag.diff-easy{color:var(--ok);border-color:rgba(72,217,138,0.3);background:var(--ok-dim);}
-.q-tag.diff-medium{color:var(--gold);border-color:rgba(107,116,128,0.3);background:var(--gold-dim);}
+.q-tag.diff-medium{color:var(--info);border-color:rgba(91,157,240,0.3);background:var(--info-dim);}
 .q-tag.diff-hard{color:var(--danger);border-color:rgba(255,107,94,0.3);background:var(--danger-dim);}
 
 .q-text{
