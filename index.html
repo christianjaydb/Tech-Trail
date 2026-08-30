@@ -30,6 +30,12 @@
   --danger-dim:rgba(255,107,94,0.11);
   --ok:#48d98a;            /* easy / correct-adjacent green */
   --ok-dim:rgba(72,217,138,0.11);
+  --info:#5b9df0;         /* cool signal blue — matches danger/ok's saturation, not the neutral grays */
+  --info-dim:rgba(91,157,240,0.14);
+  --amber:#e0a84d;        /* warm complement, distinct from the gray "gold" token above */
+  --amber-dim:rgba(224,168,77,0.14);
+  --violet:#a68af5;
+  --violet-dim:rgba(166,138,245,0.14);
   --on-accent:#05090d;    /* dark text set on bright accent fills */
   --radius:10px;
   --radius-sm:7px;
@@ -245,6 +251,49 @@ button{font-family:inherit;}
   color:var(--text-dim);
   line-height:1.55;
   margin:0;
+}
+.mode-card{padding-right:60px;}
+.mode-icon{
+  position:absolute;
+  top:16px;right:16px;
+  width:34px;height:34px;
+  border-radius:8px;
+  background:var(--panel-alt);
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent);
+  flex-shrink:0;
+  transition:border-color .18s ease, color .18s ease, background .18s ease, transform .18s ease;
+}
+.mode-icon svg{display:block;width:17px;height:17px;}
+.mode-card:hover .mode-icon,.mode-card:focus-visible .mode-icon{
+  border-color:var(--accent);
+  color:var(--accent-hi);
+  background:var(--accent-dim);
+  transform:translateY(-1px);
+}
+/* Per-route tint — gives each icon a distinct signal color at rest,
+   so the five routes read apart from each other, not just from their labels.
+   All five sit at the same saturation/opacity so none reads louder than the rest. */
+.mode-icon-quick{color:var(--info);border-color:rgba(91,157,240,0.32);background:var(--info-dim);}
+.mode-icon-standard{color:var(--amber);border-color:rgba(224,168,77,0.32);background:var(--amber-dim);}
+.mode-icon-challenge{color:var(--danger);border-color:rgba(255,107,94,0.32);background:var(--danger-dim);}
+.mode-icon-practice{color:var(--ok);border-color:rgba(72,217,138,0.32);background:var(--ok-dim);}
+.mode-icon-full{color:var(--violet);border-color:rgba(166,138,245,0.32);background:var(--violet-dim);}
+.mode-card:hover .mode-icon-quick,.mode-card:focus-visible .mode-icon-quick{
+  border-color:var(--info);color:#fff;background:rgba(91,157,240,0.26);
+}
+.mode-card:hover .mode-icon-standard,.mode-card:focus-visible .mode-icon-standard{
+  border-color:var(--amber);color:#fff;background:rgba(224,168,77,0.26);
+}
+.mode-card:hover .mode-icon-challenge,.mode-card:focus-visible .mode-icon-challenge{
+  border-color:var(--danger);color:#fff;background:rgba(255,107,94,0.26);
+}
+.mode-card:hover .mode-icon-practice,.mode-card:focus-visible .mode-icon-practice{
+  border-color:var(--ok);color:#fff;background:rgba(72,217,138,0.26);
+}
+.mode-card:hover .mode-icon-full,.mode-card:focus-visible .mode-icon-full{
+  border-color:var(--violet);color:#fff;background:rgba(166,138,245,0.26);
 }
 
 /* ===== Panel / config ===== */
@@ -721,7 +770,9 @@ button{font-family:inherit;}
 @media(max-width:420px){
   .brand-word{font-size:17px;}
   .hero h1{font-size:23px;}
-  .mode-card{padding:16px;}
+  .mode-card{padding:16px;padding-right:54px;}
+  .mode-icon{top:14px;right:14px;width:30px;height:30px;}
+  .mode-icon svg{width:15px;height:15px;}
   .choice-row .pill-btn{flex:1 1 calc(50% - 10px);text-align:center;}
 }
 </style>
@@ -5140,6 +5191,42 @@ const MODES = {
   full:      { name: 'Full Review',   count: QUESTION_POOL.length, desc: `The entire ${QUESTION_POOL.length}-question pool, shuffled, no repeats.`, code: `FUL-${QUESTION_POOL.length}` },
 };
 
+// Icons echo the brand-mark's circuit language (currentColor stroke, 1.6 weight,
+// round caps) so each route reads as a distinct signal rather than a decoration.
+const MODE_ICONS = {
+  // Quick Quiz — a lightning bolt, for a fast diagnostic pass
+  quick: `
+<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M18 5 L9.5 18.5 L15 18.5 L13.5 27 L23 13 L16.8 13 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" fill="currentColor" fill-opacity="0.14"/>
+</svg>`,
+  // Standard Quiz — a filled progress bar, for the live progress readout
+  standard: `
+<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <rect x="5" y="12.5" width="22" height="7" rx="3.5" stroke="currentColor" stroke-width="1.6"/>
+  <rect x="7.3" y="14.8" width="12" height="2.4" rx="1.2" fill="currentColor"/>
+</svg>`,
+  // Challenge Mode — ramping bars with a lit node at the peak, for rising difficulty
+  challenge: `
+<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <line x1="8" y1="23" x2="8" y2="18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="16" y1="23" x2="16" y2="13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="24" y1="23" x2="24" y2="8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="24" cy="8" r="1.9" fill="currentColor"/>
+</svg>`,
+  // Practice Mode — a bold infinity loop, for untimed and unlimited repetition
+  practice: `
+<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M16 16 C16 12 12.8 9.2 9.8 9.2 C6.3 9.2 4 12.1 4 16 C4 19.9 6.3 22.8 9.8 22.8 C13.8 22.8 15.3 19 16 16 C16.7 13 18.2 9.2 22.2 9.2 C25.7 9.2 28 12.1 28 16 C28 19.9 25.7 22.8 22.2 22.8 C19.2 22.8 16 20 16 16 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+</svg>`,
+  // Full Review — stacked layers, for the entire question pool
+  full: `
+<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M16 7 L25 12 L16 17 L7 12 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M7 17.5 L16 22.5 L25 17.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M7 22.5 L16 27.5 L25 22.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`,
+};
+
 const MAX_CHALLENGE_MISTAKES = 5;
 
 function ratingFor(pct) {
@@ -5448,6 +5535,8 @@ function renderHome() {
 
   const grid = el('div', { class: 'mode-grid' });
   Object.entries(MODES).forEach(([key, cfg]) => {
+    const icon = el('div', { class: `mode-icon mode-icon-${key}`, 'aria-hidden': 'true' });
+    icon.innerHTML = MODE_ICONS[key] || '';
     const card = el('button', {
       class: 'mode-card',
       onclick: () => {
@@ -5459,6 +5548,7 @@ function renderHome() {
         }
       },
     }, [
+      icon,
       el('div', { class: 'mode-meta' }, cfg.code),
       el('div', { class: 'mode-name' }, cfg.name),
       el('p', { class: 'mode-desc' }, cfg.desc),
